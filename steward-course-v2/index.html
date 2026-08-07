@@ -532,7 +532,8 @@ function boot(){
   g('backBtn').addEventListener('click',function(){if(cur>0)render(cur-1);});
   render(0);
 }
-window.JAM={go:goTo,st:st,done:done}; // harness hook (used by LMS smoke tests)
+/* QA hook — only exposed when the URL carries ?qa=1, never in normal use */
+if(/[?&]qa=1(&|$)/.test(location.search))window.JAM={go:goTo,st:st,done:done};
 /* ============ SECTION 0 — WELCOME ============ */
 scr('0.1',0,function(h){
   h.innerHTML='<div class="brand" style="margin-bottom:16px"><span class="hex"></span><span class="wm"><b>JAM</b><span>EVENT SERVICES</span></span></div>'+
