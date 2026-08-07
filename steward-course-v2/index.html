@@ -866,7 +866,14 @@ scr('2.3',2,function(h){
   h.innerHTML='<h2>Who. Where. What. How bad.</h2>'+
   '<div class="bq"><p>"Control from Gate 3" — who you are, where you are</p><p>"150 queuing" — what you can see</p><p>"Moving normally" — how serious it is</p></div>'+
   '<div class="callout"><b>Four seconds. That\'s the whole thing.</b></div>';
-  actions(h).appendChild(contBtn('Build one',next));
+  actions(h).appendChild(contBtn('Watch it done',next));
+});
+scr('2.3b',2,function(h){
+  h.innerHTML='<div class="kicker">Watch</div><h2>Amara makes the call</h2>'+
+  '<p class="q">Watch a clear call in action — then you\'ll build one yourself.</p>'+
+  '<div id="rdmark"></div>';
+  vidSlot(h,'radio-demo',{before:'#rdmark'});
+  actions(h).appendChild(contBtn('Now build one',next));
 });
 scr('2.4',2,function(h){
   h.innerHTML='<h2>Gate 7, queue building</h2><p class="q">Put the four parts of the radio call into the right order.</p><div class="howto">Use the ▲ ▼ buttons to move each part.</div>';
