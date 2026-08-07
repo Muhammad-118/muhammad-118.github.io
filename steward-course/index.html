@@ -799,18 +799,18 @@
     var picked=null,placedCount=0,built=false;
     function buildTray(){if(built)return;built=true;var tray=g('tray');
       HAZ.forEach(function(h,i){var c=el('<div class="dcard" tabindex="0" role="button" data-i="'+i+'" aria-label="'+h.L+'"><span class="b"></span>'+h.L+'</div>');
-        c.addEventListener('click',function(){if(c.classList.contains('g-ok')||c.classList.contains('g-no'))return;if(c._drag){c._drag=false;return;}pick(c);});
+        c.addEventListener('click',function(){if(c.classList.contains('g-ok'))return;if(c._drag){c._drag=false;return;}pick(c);});
         c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(c);}});
         enableDrag(c);tray.appendChild(c);});
       [].slice.call(document.querySelectorAll('#m4b .bucket')).forEach(function(bk){
-        bk.addEventListener('click',function(){if(picked)place(picked,bk.dataset.k);});});
+        bk.addEventListener('click',function(e){if(e.target.closest('.dcard'))return;if(picked)place(picked,bk.dataset.k);});});
     }
-    function pick(c){if(picked===c){picked=null;c.classList.remove('picked');g('pHint').textContent='Drag a card into a column — or tap a card, then tap a column.';return;}
+    function pick(c){c.classList.remove('g-no');if(picked===c){picked=null;c.classList.remove('picked');g('pHint').textContent='Drag a card into a column — or tap a card, then tap a column.';return;}
       if(picked)picked.classList.remove('picked');picked=c;c.classList.add('picked');g('pHint').textContent='Now tap a column to drop "'+HAZ[+c.dataset.i].L+'".';}
-    function place(c,k){c.classList.remove('picked');picked=null;g(k==='now'?'bnow':'bwatch').appendChild(c);
+    function place(c,k){c.classList.remove('picked','g-no');picked=null;g(k==='now'?'bnow':'bwatch').appendChild(c);
       var was=c.dataset.placed;c.dataset.placed=k;if(!was)placedCount++;g('pHint').textContent='';g('c4b').disabled=placedCount<8;}
     function enableDrag(c){var sx,sy,drag=false;
-      c.addEventListener('pointerdown',function(e){if(c.classList.contains('g-ok')||c.classList.contains('g-no'))return;sx=e.clientX;sy=e.clientY;drag=false;
+      c.addEventListener('pointerdown',function(e){if(c.classList.contains('g-ok'))return;sx=e.clientX;sy=e.clientY;drag=false;
         try{c.setPointerCapture(e.pointerId);}catch(_){}
         function mv(ev){var dx=ev.clientX-sx,dy=ev.clientY-sy;if(!drag&&Math.abs(dx)+Math.abs(dy)>8){drag=true;c.classList.add('dragging');c.style.position='relative';c.style.zIndex='60';}
           if(drag){c.style.transform='translate('+dx+'px,'+dy+'px)';var z=zoneAt(ev.clientX,ev.clientY);hoverZone(z);}}
@@ -921,14 +921,14 @@
     var picked=null,placed=0,built=false;
     function build6(){if(built)return;built=true;var tray=g('tray6');
       ITEMS.forEach(function(it,i){var c=el('<div class="dcard" tabindex="0" role="button" data-i="'+i+'" aria-label="'+it.t+'"><span class="b"></span>'+it.t+'</div>');
-        c.addEventListener('click',function(){if(c.classList.contains('g-ok')||c.classList.contains('g-no'))return;if(c._drag){c._drag=false;return;}pick(c);});
+        c.addEventListener('click',function(){if(c.classList.contains('g-ok'))return;if(c._drag){c._drag=false;return;}pick(c);});
         c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(c);}});
         drag(c);tray.appendChild(c);});
-      [].slice.call(document.querySelectorAll('#m6b .bucket')).forEach(function(bk){bk.addEventListener('click',function(){if(picked)place(picked,bk.dataset.k);});});}
-    function pick(c){if(picked===c){picked=null;c.classList.remove('picked');g('pHint6').textContent='Drag a card into a column — or tap a card, then tap a column.';return;}
+      [].slice.call(document.querySelectorAll('#m6b .bucket')).forEach(function(bk){bk.addEventListener('click',function(e){if(e.target.closest('.dcard'))return;if(picked)place(picked,bk.dataset.k);});});}
+    function pick(c){c.classList.remove('g-no');if(picked===c){picked=null;c.classList.remove('picked');g('pHint6').textContent='Drag a card into a column — or tap a card, then tap a column.';return;}
       if(picked)picked.classList.remove('picked');picked=c;c.classList.add('picked');g('pHint6').textContent='Now tap a column to drop "'+ITEMS[+c.dataset.i].t+'".';}
-    function place(c,k){c.classList.remove('picked');picked=null;g(k==='report'?'brep':'bnev').appendChild(c);var was=c.dataset.placed;c.dataset.placed=k;if(!was)placed++;g('pHint6').textContent='';g('c6').disabled=placed<8;}
-    function drag(c){var sx,sy,dr=false;c.addEventListener('pointerdown',function(e){if(c.classList.contains('g-ok')||c.classList.contains('g-no'))return;sx=e.clientX;sy=e.clientY;dr=false;try{c.setPointerCapture(e.pointerId);}catch(_){}
+    function place(c,k){c.classList.remove('picked','g-no');picked=null;g(k==='report'?'brep':'bnev').appendChild(c);var was=c.dataset.placed;c.dataset.placed=k;if(!was)placed++;g('pHint6').textContent='';g('c6').disabled=placed<8;}
+    function drag(c){var sx,sy,dr=false;c.addEventListener('pointerdown',function(e){if(c.classList.contains('g-ok'))return;sx=e.clientX;sy=e.clientY;dr=false;try{c.setPointerCapture(e.pointerId);}catch(_){}
       function mv(ev){var dx=ev.clientX-sx,dy=ev.clientY-sy;if(!dr&&Math.abs(dx)+Math.abs(dy)>8){dr=true;c.classList.add('dragging');c.style.position='relative';c.style.zIndex='60';}
         if(dr){c.style.transform='translate('+dx+'px,'+dy+'px)';var z=za(ev.clientX,ev.clientY);hv(z);}}
       function up(ev){c.removeEventListener('pointermove',mv);c.removeEventListener('pointerup',up);c.removeEventListener('pointercancel',up);
