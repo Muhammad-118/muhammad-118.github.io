@@ -564,9 +564,16 @@
   .moment .mfb{margin-top:10px}
 
   .simg{width:100%;border-radius:14px;border:1px solid var(--line-2);box-shadow:var(--shadow-sm);display:block;margin:0 0 12px}
+  /* 5.4 write-this table: icon rows */
+  .wtd{padding:9px 14px;border-top:1px solid var(--line);display:flex;align-items:center;gap:9px;color:var(--ink)}
+  .ntd{padding:9px 14px;border-top:1px solid var(--line);color:var(--muted)}
+  .wic{flex:none;width:22px;height:22px;color:var(--teal)}
+  .wic svg{width:100%;height:100%}
   /* hotspots: invisible 12px halo so every zone clears the 44px touch minimum */
   .hot{overflow:visible}
   .hot::after{content:"";position:absolute;inset:-12px}
+
+  #rcards .hbody{padding-left:47px}
 </style>
 </head>
 <body>
@@ -1555,11 +1562,16 @@ scr('5.4',5,function(h){
   '<p class="lead">Here\'s the trick: imagine a camera was watching. A camera can film someone <b>wobbling and smelling of alcohol</b> — it can\'t film "drunk", because drunk is your opinion. If a camera could have recorded it, write it. If it\'s your interpretation, leave it out.</p>'+
   '<div class="card" style="padding:0;overflow:hidden"><table style="width:100%;border-collapse:collapse;font-size:14px">'+
   '<tr style="background:var(--surface-2)"><th style="text-align:left;padding:10px 14px;color:var(--teal);font-family:var(--font-display)">WRITE THIS</th><th style="text-align:left;padding:10px 14px;color:var(--red);font-family:var(--font-display)">NOT THIS</th></tr>'+
-  '<tr><td style="padding:9px 14px;border-top:1px solid var(--line)">Smelled of alcohol</td><td style="padding:9px 14px;border-top:1px solid var(--line);color:var(--muted)">Was drunk</td></tr>'+
-  '<tr><td style="padding:9px 14px;border-top:1px solid var(--line)">Was shouting</td><td style="padding:9px 14px;border-top:1px solid var(--line);color:var(--muted)">Was aggressive</td></tr>'+
-  '<tr><td style="padding:9px 14px;border-top:1px solid var(--line)">Water on floor</td><td style="padding:9px 14px;border-top:1px solid var(--line);color:var(--muted)">Spillage from kiosk</td></tr>'+
-  '<tr><td style="padding:9px 14px;border-top:1px solid var(--line)">Said they were fine</td><td style="padding:9px 14px;border-top:1px solid var(--line);color:var(--muted)">Was fine</td></tr></table></div>'+
-  '<div class="callout"><b>And write it this shift</b>, while you still remember it.</div><div id="wrmark"></div>';
+  '<tr><td class="wtd"><span class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8l-1 8a3 3 0 0 1-6 0L8 2z"/><path d="M12 13v7"/><path d="M8 22h8"/></svg></span>Smelled of alcohol</td><td class="ntd">Was drunk</td></tr>'+
+  '<tr><td class="wtd"><span class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4h4l5 5V5L7 10H3z"/><path d="M16 8a5 5 0 0 1 0 8"/><path d="M19 5a9 9 0 0 1 0 14"/></svg></span>Was shouting</td><td class="ntd">Was aggressive</td></tr>'+
+  '<tr><td class="wtd"><span class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg></span>Water on floor</td><td class="ntd">Spillage from kiosk</td></tr>'+
+  '<tr><td class="wtd"><span class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 1 1-4-6.9"/><path d="M9 12l2 2 4-5"/></svg></span>Said they were fine</td><td class="ntd">Was fine</td></tr></table></div>'+
+  '';
+  actions(h).appendChild(contBtn('Got it',next));
+});
+scr('5.4b',5,function(h){
+  h.innerHTML='<div class="kicker">Watch</div><h2>And write it tonight</h2>'+
+  '<p class="lead">Knowing <b>what</b> to write is half of it. The other half is <b>when</b>: this shift, while you still remember it. Tomorrow the details are gone.</p><div id="wrmark"></div>';
   vidSlot(h,'write-report',{before:'#wrmark'});
   actions(h).appendChild(contBtn('Practise',next));
 });
@@ -1757,17 +1769,41 @@ scr('6.2',6,function(h){
 });
 scr('6.3',6,function(h){
   h.innerHTML='<h2>If you\'re unsure, you already know</h2>'+
-  '<div class="bq"><p>Confidential isn\'t just what you\'ve been told to keep quiet.</p><p>It\'s everything you can see because of where your pass lets you stand.</p></div>'+
-  '<div class="learn"><div class="ll"><span class="d"></span> What JAM expects of you — on shift and off</div>'+
-  '<div class="flow">'+
-  '<div class="fs"><span class="fn">1</span><span class="ft"><b>No photos or filming anywhere on site</b> while you\'re accredited — front of house or back. Not "just for me" either: the photo existing is the breach.</span></div>'+
-  '<div class="fs"><span class="fn">2</span><span class="ft"><b>Serious things go in a report</b> — incidents, hazards, mistakes (yours included). The report is the only channel; group chats and DMs don\'t count.</span></div>'+
-  '<div class="fs"><span class="fn">3</span><span class="ft"><b>Never confirm or discuss what happened</b> — online, to friends, to strangers in the car park. Off shift doesn\'t end confidentiality.</span></div>'+
-  '<div class="fs"><span class="fn">4</span><span class="ft"><b>Who\'s on site stays private</b> — players, celebrities, anyone. You knew because of your pass.</span></div>'+
-  '<div class="fs"><span class="fn">5</span><span class="ft"><b>See something leaked or posted?</b> Tell your supervisor — don\'t share, screenshot or comment.</span></div>'+
-  '</div></div>'+
-  '<div class="callout"><b>The photo is the breach.</b> Posting is how it gets discovered.</div>';
-  actions(h).appendChild(contBtn('Practise',next));
+  '<p class="lead">Confidential isn\'t just what you\'ve been told to keep quiet — it\'s everything you can see <b>because of where your pass lets you stand</b>.</p>'+
+  '<p class="q">Tap each rule to open it. <span id="rseen">0 of 5</span></p><div id="rcards"></div>'+
+  '<div class="callout" style="margin-top:14px"><b>The photo is the breach.</b> Posting is just how it gets discovered.</div>';
+  function ic(p){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;flex:none;color:var(--muted)">'+p+'</svg>';}
+  var RULES=[
+    [ic('<path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/><line x1="2" y1="2" x2="22" y2="22"/>'),
+     'No photos or filming on site','Front of house or back, while you\'re accredited. Not "just for me" either — <b>the photo existing is the breach</b>.'],
+    [ic('<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 12h6M9 16h6"/>'),
+     'Serious things go in a report','Incidents, hazards, mistakes — yours included. The report is the only channel; <b>group chats and DMs don\'t count</b>.'],
+    [ic('<path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.5-.76L3 21l1.76-6A8.5 8.5 0 1 1 21 11.5z"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/>'),
+     'Never discuss what happened','Online, to friends, to strangers in the car park. <b>Off shift doesn\'t end confidentiality.</b>'],
+    [ic('<rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="2.5"/><path d="M8 17c1-2 7-2 8 0"/>'),
+     'Who\'s on site stays private','Players, celebrities, anyone. <b>You knew because of your pass</b> — so it isn\'t yours to share.'],
+    [ic('<path d="M4 22V4"/><path d="M4 4h14l-2.5 4L18 12H4"/>'),
+     'See something leaked?','Tell your supervisor. <b>Don\'t share it, screenshot it or comment on it</b> — even to call it out.']
+  ];
+  var seen=0,wrap=g('rcards');
+  RULES.forEach(function(r,i){
+    var b=el('<button type="button" class="hcard" aria-expanded="false">'+
+      '<span class="hrow">'+r[0]+'<span class="ht">'+r[1]+'</span><span class="hchev">▶</span></span>'+
+      '<span class="hbody">'+r[2]+'</span></button>');
+    b.addEventListener('click',function(){
+      var open=b.classList.toggle('open');
+      b.setAttribute('aria-expanded',open?'true':'false');
+      if(open&&!b.classList.contains('seen')){
+        b.classList.add('seen');seen++;
+        g('rseen').textContent=seen+' of 5';
+        if(seen===5){nxt.disabled=false;g('rseen').textContent='All 5 ✓';}
+      }
+    });
+    wrap.appendChild(b);
+  });
+  var nxt=contBtn('Practise',next);
+  nxt.disabled=true;
+  actions(h).appendChild(nxt);
 });
 scr('6.4',6,function(h){
   h.innerHTML='<h2>Report, or nowhere?</h2>'+
