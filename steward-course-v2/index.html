@@ -403,6 +403,66 @@
   /* video: last-resort tap-to-play overlay */
   .vplay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(24,30,48,.35);border:0;cursor:pointer}
   .vplay span{width:74px;height:74px;border-radius:50%;background:var(--orange);color:#2a1500;display:flex;align-items:center;justify-content:center;font-size:30px;box-shadow:0 8px 26px rgba(0,0,0,.4)}
+
+  /* ---- Section 2: options as radio transmissions ---- */
+  .skin-radio .opt{background:#1c2740;border-color:#31406b;color:#eef3fa;border-radius:12px}
+  .skin-radio .opt .body{font-size:14px;color:#eef3fa}
+  .skin-radio .opt .body .l{color:#7fd0ff}
+  .skin-radio .opt .dot{border-color:#4d97ca;background:#0d1526;position:relative}
+  .skin-radio .opt .dot::before{content:"";position:absolute;inset:5px;border-radius:50%;background:#3a4f7d}
+  .skin-radio .opt::after{content:"TX";position:absolute;top:8px;right:10px;font-family:var(--font-display);font-size:10px;letter-spacing:.14em;color:#5b83c9;border:1px solid #31406b;border-radius:4px;padding:1px 6px}
+  .skin-radio .opt:hover:not(:disabled){border-color:#4d97ca;transform:translateY(-1px)}
+  .skin-radio .opt[aria-pressed="true"],.skin-radio .opt.g-pick{border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,109,1,.25)}
+  .skin-radio .opt[aria-pressed="true"] .dot::before,.skin-radio .opt.g-pick .dot::before{background:var(--orange);box-shadow:0 0 8px rgba(255,109,1,.8)}
+  .skin-radio .opt.g-ok{background:#12352c;border-color:var(--teal)}
+  .skin-radio .opt.g-ok::after{content:"SENT";color:var(--teal);border-color:var(--teal)}
+  .skin-radio .opt.g-no{background:#3a1c17;border-color:var(--red)}
+  .skin-radio .opt.g-no::after{content:"NO";color:#ff8a76;border-color:var(--red)}
+  .skin-radio .opt.g-warn{background:#3a2f14;border-color:var(--amber)}
+  /* ---- Sections 3/6: options as speech bubbles ---- */
+  .skin-speech{gap:12px}
+  .skin-speech .opt{border-radius:16px 16px 4px 16px;background:#eaf3fb;border-color:#cfe4f5;margin-left:14%;position:relative}
+  .skin-speech .opt::before{content:"";position:absolute;right:-1px;bottom:-9px;border:10px solid transparent;border-top-color:#cfe4f5;border-right-color:#cfe4f5}
+  .skin-speech .opt .body{font-size:14.5px}
+  .skin-speech .opt .body::before{content:"YOU";display:block;font-family:var(--font-display);font-size:10px;letter-spacing:.14em;color:var(--blue);margin-bottom:2px}
+  .skin-speech .opt:hover:not(:disabled){border-color:var(--sky);background:#f2f9ff}
+  .skin-speech .opt.g-ok{background:var(--teal-tint);border-color:var(--teal)}
+  .skin-speech .opt.g-ok::before{border-top-color:var(--teal);border-right-color:var(--teal)}
+  .skin-speech .opt.g-no{background:var(--red-tint);border-color:var(--red)}
+  .skin-speech .opt.g-no::before{border-top-color:var(--red);border-right-color:var(--red)}
+  .skin-speech .opt.g-warn{background:var(--amber-tint);border-color:var(--amber)}
+  .skin-speech .opt.g-pick{border-color:var(--blue)}
+  /* ---- 5.2: the report as a paper form ---- */
+  .reportsheet{background:#fffdf6;border:1px solid #e3ddc8;border-radius:6px;box-shadow:var(--shadow-sm);padding:14px 14px 14px 30px;position:relative}
+  .reportsheet::before{content:"";position:absolute;top:0;bottom:0;left:18px;width:2px;background:#f2b8b0}
+  .rshead{font-family:var(--font-display);font-size:13px;letter-spacing:.12em;color:var(--navy);border-bottom:2px solid var(--navy);padding-bottom:6px;margin-bottom:10px}
+  .rshead span{float:right;color:var(--muted);letter-spacing:.04em}
+  .reportsheet .opt{background:transparent;border:0;border-bottom:1px dashed #d8d2bd;border-radius:0;box-shadow:none;min-height:48px;padding:10px 6px}
+  .reportsheet .opt .dot{border-radius:4px;border-color:#b9b294}
+  .reportsheet .opt:hover:not(:disabled){background:#fbf6e4;transform:none;box-shadow:none;border-bottom-color:#b9b294}
+  .reportsheet .opt[aria-pressed="true"],.reportsheet .opt.g-pick{background:#f3f9f1;border-bottom:1px solid var(--teal)}
+  .reportsheet .opt[aria-pressed="true"] .dot{background:var(--teal);border-color:var(--teal)}
+  .reportsheet .opt[aria-pressed="true"] .dot::after{content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px}
+  /* ---- 6.7: social feed cards ---- */
+  .post{border-radius:16px}
+  .skin-feed .opt{border-radius:16px;padding:0;overflow:hidden;display:block}
+  .skin-feed .opt .body{display:block;padding:0}
+  .skin-feed .opt .phead{display:flex;gap:10px;align-items:center;padding:12px 14px 0}
+  .skin-feed .opt .pav{width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-family:var(--font-display);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+  .skin-feed .opt .pwho b{display:block;font-size:13.5px;color:var(--navy)}
+  .skin-feed .opt .pwho span{font-size:11px;color:var(--faint)}
+  .skin-feed .opt .ptext{padding:8px 14px 12px;font-size:15px;color:var(--ink);text-align:left}
+  .skin-feed .opt .pfoot{display:flex;gap:18px;border-top:1px solid var(--line);padding:8px 14px;color:var(--faint);font-size:12px}
+  .skin-feed .opt .dot{display:none}
+  /* ---- 4.7: tap-your-post chips ---- */
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0 14px}
+  .chip2{font:inherit;font-size:14px;font-weight:600;color:var(--navy);background:#fff;border:1.5px solid var(--line-2);border-radius:22px;padding:11px 16px;min-height:46px;cursor:pointer;box-shadow:var(--shadow-sm)}
+  .chip2[aria-pressed="true"]{background:var(--teal-tint);border-color:var(--teal);color:#0a5a4e}
+  .chip2[aria-pressed="true"]::before{content:"✓ ";font-weight:800}
+  .chip2:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+  /* ---- section-close shift-log stamp ---- */
+  .stamp{display:inline-block;margin-top:18px;padding:9px 16px;border:2.5px dashed var(--teal);border-radius:8px;color:var(--teal);font-family:var(--font-display);font-size:13.5px;letter-spacing:.1em;transform:rotate(-2.5deg);background:rgba(15,157,138,.05);animation:stampIn .4s cubic-bezier(.2,.9,.3,1.4) both .25s}
+  @keyframes stampIn{from{transform:rotate(-2.5deg) scale(1.6);opacity:0}to{transform:rotate(-2.5deg) scale(1);opacity:1}}
 </style>
 </head>
 <body>
@@ -486,7 +546,7 @@ function actions(host){var a=el('<div class="actions"></div>');host.appendChild(
 var TIER={best:['good','Best answer'],ok:['good','Right'],warn:['tip','Nearly'],bad:['bad','Not this']};
 function svin(elm){requestAnimationFrame(function(){try{elm.scrollIntoView({behavior:'smooth',block:'nearest'});}catch(_){}});}
 function mcq(host,cfg){
-  var wrap=el('<div class="opts"></div>'),locked=false,fbBox=null;
+  var wrap=el('<div class="opts'+(cfg.skin?' skin-'+cfg.skin:'')+'"></div>'),locked=false,fbBox=null;
   function showBox(type,head,body){
     if(fbBox)fbBox.remove();
     fbBox=fb(type,head,body);
@@ -904,7 +964,7 @@ scr('1.7',1,function(h){
 scr('1.8',1,function(h){
   done[1]=true;
   h.innerHTML='<div class="closewrap"><div class="big">✓</div><h2>1 of 6 done</h2><p class="lead">Show up ready. ✓</p>'+
-  '<div class="progressdots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div></div>';
+  '<div class="progressdots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div><div class="stamp">SHIFT LOG 14:55 — KIT COMPLETE · RADIO LIVE</div></div>';
   actions(h).appendChild(contBtn('Next section',next));
 });
 /* ============ SECTION 2 — PREPARE & CONNECT ============ */
@@ -913,7 +973,7 @@ scr('2.1',2,function(h){
   '<p class="lead">Gate 3. About 150 people. Still moving, but growing.</p><p class="q">Choose your radio message. <b>10 seconds.</b></p>';
   vidSlot(h,'gate3-queue',{loop:true,before:'.howto'});
   var tc=timerChip(h,10,function(){st.s2first='T';next();});
-  mcq(h,{nav:true,opts:[
+  mcq(h,{skin:'radio',nav:true,opts:[
     {l:'A',t:'"Gate 3\'s busy."',go:'2.2'},
     {l:'B',t:'"Control from Gate 3. Approximately 150 spectators queuing. Queue moving normally. Over."',go:'2.2'},
     {l:'C',t:'"It\'s absolutely mad over here, can someone come down?"',go:'2.2'}
@@ -956,7 +1016,7 @@ scr('2.4',2,function(h){
 });
 scr('2.5',2,function(h){
   h.innerHTML='<h2>Someone has fallen</h2><p class="lead">Near the turnstiles at Gate 5. They\'re conscious and sitting up.</p><p class="q">Choose your radio message.</p>';
-  mcq(h,{opts:[
+  mcq(h,{skin:'radio',opts:[
     {t:'"We need medical at Gate 5, someone\'s down."',k:'warn',f:'<b>Nearly.</b> No call sign, and "down" could mean anything. Medical won\'t know what to bring.'},
     {t:'"Control from Gate 5. One spectator fallen at the turnstiles. Conscious and sitting up. Request medical. Over."',k:'best',f:'Medical knows where, what and how serious before they set off.'},
     {t:'"Control from Gate 5. Bit of an incident here. Over."',k:'bad',f:'<b>Control has to ask twice.</b> That\'s time the spectator doesn\'t have.'}
@@ -978,7 +1038,7 @@ scr('2.7',2,function(h){
   '<div class="sline"><span class="w"><i style="height:9px"></i><i style="height:16px"></i><i style="height:7px"></i><i style="height:13px"></i></span>Metal barrier scraping</div>'+
   '<div class="sline"><span class="w"><i style="height:16px"></i><i style="height:16px"></i><i style="height:5px"></i><i style="height:5px"></i></span>A whistle</div></div>'+
   '<p class="q">Choose the message you\'d send.</p>';
-  mcq(h,{cont:'Section complete',heads:{best:'✓ You described what you could tell, not what you assumed.'},opts:[
+  mcq(h,{skin:'radio',cont:'Section complete',heads:{best:'✓ You described what you could tell, not what you assumed.'},opts:[
     {t:'"Control, sounds like a fight at Gate 6!"',k:'bad',f:'You can\'t see a fight. You\'ve reported a guess as a fact — now the response is sized to your guess.'},
     {t:'"Control from Gate 6. Raised voices and barrier movement, north corner. Cannot see the cause from my post. Request a visual check. Over."',k:'best',f:'That\'s the job.'},
     {t:'"Control from Gate 6. Something\'s kicking off. Over."',k:'bad',f:'Control has to ask what, where and how bad. Three questions your message should have answered.'}
@@ -987,7 +1047,7 @@ scr('2.7',2,function(h){
 scr('2.8',2,function(h){
   done[2]=true;
   h.innerHTML='<div class="closewrap"><div class="big">✓</div><h2>2 of 6 done</h2><p class="lead">Prepare and connect. ✓</p>'+
-  '<div class="progressdots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div></div>';
+  '<div class="progressdots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div><div class="stamp">SHIFT LOG 15:20 — COMMS CHECK PASSED</div></div>';
   actions(h).appendChild(contBtn('Next section',next));
 });
 /* ============ SECTION 3 — REPRESENT US TO THE PUBLIC ============ */
@@ -997,7 +1057,7 @@ scr('3.1',3,function(h){
   '<p class="lead">A man in his forties. Holding a ticket and his daughter\'s hand. He\'s loud, and people are looking.</p>'+
   '<p class="q">What do you say first?</p>';
   vidSlot(h,'spectator',{before:'.howto'});
-  mcq(h,{nav:true,opts:[
+  mcq(h,{skin:'speech',nav:true,opts:[
     {l:'A',t:'"That\'s not my problem, mate."',go:'3.2a'},
     {l:'B',t:'"Please wait here."',go:'3.2b'},
     {l:'C',t:'"Sorry — can I see your ticket?"',go:'3.2c'},
@@ -1012,7 +1072,7 @@ scr('3.2a',3,function(h){
 scr('3.2b',3,function(h){
   h.innerHTML='<div class="consq"><div class="ch">"Wait for what?"</div><p>He\'s still angry. You\'ve bought three seconds and spent his patience.</p></div>'+
   '<p class="q">Now what do you say?</p>';
-  mcq(h,{nav:true,opts:[
+  mcq(h,{skin:'speech',nav:true,opts:[
     {t:'"There\'s a queue, I\'ll get to you."',go:'3.2a'},
     {t:'"I\'m sorry — let me look at that ticket."',go:'3.2d'},
     {t:'"Let me get my supervisor."',go:'3.3p'}
@@ -1021,7 +1081,7 @@ scr('3.2b',3,function(h){
 scr('3.2c',3,function(h){
   h.innerHTML='<div class="consq"><div class="ch">"I\'ve SHOWN three people my ticket."</div><p>He isn\'t refusing to help you. He doesn\'t feel heard yet.</p></div>'+
   '<p class="q">Try again — what do you say?</p>';
-  mcq(h,{nav:true,opts:[
+  mcq(h,{skin:'speech',nav:true,opts:[
     {t:'"I understand, but I do need to see it."',go:'3.2a'},
     {t:'"I\'m sorry — that\'s frustrating. Can I look, and I\'ll walk you there myself?"',go:'3.2d'}
   ]});
@@ -1042,7 +1102,7 @@ scr('3.3',3,function(h){
 });
 scr('3.4',3,function(h){
   h.innerHTML='<h2>She isn\'t shouting</h2><p class="lead">"I\'ve queued 40 minutes. I\'ve missed kick-off." Calm. Cold. Looking straight at you.</p><p class="q">What do you say?</p>';
-  mcq(h,{opts:[
+  mcq(h,{skin:'speech',opts:[
     {t:'"There\'s nothing I can do about the queue."',k:'bad',f:'<b>True, and useless.</b> She knows. She wants it acknowledged.'},
     {t:'"I\'m sorry — 40 minutes is a long time. Let me get you to your seat as fast as I can."',k:'best',f:'You can\'t give her the time back. You can tell her it mattered.'},
     {t:'"You should have arrived earlier."',k:'bad',f:'<b>Now it\'s an argument</b> instead of a complaint.'}
@@ -1050,7 +1110,7 @@ scr('3.4',3,function(h){
 });
 scr('3.5',3,function(h){
   h.innerHTML='<h2>This one\'s on us</h2><p class="lead">He was given wrong directions by a steward at the last gate. He\'s right. We got it wrong.</p><p class="q">What do you say?</p>';
-  mcq(h,{opts:[
+  mcq(h,{skin:'speech',opts:[
     {t:'"That shouldn\'t have happened — I\'m sorry. Let me fix it now."',k:'best',f:'Own it, don\'t dress it up, move to the fix.'},
     {t:'"Some of the team are new, sorry about that."',k:'bad',f:'<b>You just blamed a colleague</b> to a member of the public.'},
     {t:'"That\'s not what I\'d have told you."',k:'bad',f:'<b>Same thing, worse.</b> You\'ve defended yourself, not helped him.'}
@@ -1112,18 +1172,8 @@ scr('3.7',3,function(h){
     btn.style.display='none';
     var head=match===4?'Your ranking matched — 4 of 4':'You matched '+match+' of 4';
     fbHost.appendChild(fb(match>=3?'good':'info',head,'The pattern: <b>acknowledge, then act</b> beats acting without acknowledging — and both beat dismissing or inflaming. There\'s no shame in a near-miss here; the point is seeing why.'));
-    var w2=el('<div><div class="howto" style="margin-top:10px">In one sentence — why does your number 1 work?</div><textarea class="ipt" aria-label="Why does your number one work?"></textarea><div></div></div>');
-    fbHost.appendChild(w2);
     var a=h.querySelector('.actions')||actions(h);
-    var ta=w2.querySelector('textarea');
-    var sBtn=contBtn('Section complete',function(){
-      var fx=w2.querySelector('div:last-child');
-      if(!fx.hasChildNodes()){fx.appendChild(fb('info','Saying why is the part that makes it stick.',''));svin(fx);setTimeout(next,1100);}
-      else next();
-    });
-    sBtn.disabled=true;
-    ta.addEventListener('input',function(){sBtn.disabled=ta.value.trim().length<3;});
-    a.appendChild(sBtn);
+    a.appendChild(contBtn('Section complete',next));
   },'blue');
   btn.disabled=true;
   h.appendChild(btn);
@@ -1131,7 +1181,7 @@ scr('3.7',3,function(h){
 scr('3.8',3,function(h){
   done[3]=true;
   h.innerHTML='<div class="closewrap"><div class="big">✓</div><h2>3 of 6 done · halfway</h2>'+
-  '<div class="progressdots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div></div>';
+  '<div class="progressdots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div><div class="stamp">SHIFT LOG 16:05 — SPECTATOR ASSISTED · GATE CALM</div></div>';
   actions(h).appendChild(contBtn('Next section',next));
 });
 /* ============ SECTION 4 — STAY ALERT (no humour) ============ */
@@ -1329,23 +1379,35 @@ scr('4.6',4,function(h){
   });
 });
 scr('4.7',4,function(h){
-  h.innerHTML='<h2>Your own post</h2><p class="q">Think about where you actually work. Name three things you\'d scan for there.</p>'+
-  '<input class="ipt" placeholder="1." aria-label="First thing to scan for"><input class="ipt" placeholder="2." aria-label="Second thing to scan for"><input class="ipt" placeholder="3." aria-label="Third thing to scan for">'+
-  '<p style="font-size:12px;color:var(--faint);margin:0 0 12px">Unscored. Yours to keep — but name all three before moving on.</p>';
-  var fbHost=el('<div></div>');h.appendChild(fbHost);
-  var doneBtn=contBtn('Section complete',function(){
-    if(!fbHost.hasChildNodes()){fbHost.appendChild(fb('info','› Take those three with you on your next shift.',''));svin(fbHost);setTimeout(next,1100);}else next();
+  h.innerHTML='<h2>Your own post</h2>'+
+  '<p class="q">Think about where you actually work. Tap the <b>three</b> you\'d most watch for there.</p>';
+  var CH=['Crowds building up','A child on their own','Bags left alone','Cables or spills','Blocked doors or exits','Queues going uneven'];
+  var wrap=el('<div class="chips"></div>'),picked=0;
+  CH.forEach(function(c){
+    var b=el('<button type="button" class="chip2" aria-pressed="false">'+c+'</button>');
+    b.addEventListener('click',function(){
+      var on=b.getAttribute('aria-pressed')==='true';
+      if(!on&&picked>=3)return;
+      b.setAttribute('aria-pressed',on?'false':'true');
+      picked+=on?-1:1;
+      nxt.disabled=picked!==3;
+    });
+    wrap.appendChild(b);
   });
-  doneBtn.disabled=true;
-  var ipts=[].slice.call(h.querySelectorAll('.ipt'));
-  ipts.forEach(function(inp){inp.addEventListener('input',function(){
-    doneBtn.disabled=!ipts.every(function(x){return x.value.trim().length>0;});});});
-  actions(h).appendChild(doneBtn);
+  h.appendChild(wrap);
+  var fbHost=el('<div></div>');h.appendChild(fbHost);
+  var a=actions(h);
+  var nxt=contBtn('Section complete',function(){
+    if(!fbHost.hasChildNodes()){fbHost.appendChild(fb('info','Those three are yours','Carry them onto your next shift — scan for them every two minutes.'));setTimeout(next,1200);}
+    else next();
+  });
+  nxt.disabled=true;
+  a.appendChild(nxt);
 });
 scr('4.8',4,function(h){
   done[4]=true;
   h.innerHTML='<div class="closewrap"><div class="big">✓</div><h2>4 of 6 done</h2>'+
-  '<div class="progressdots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>';
+  '<div class="progressdots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><div class="stamp">SHIFT LOG 17:30 — ZONE SCANNED · HAZARDS REPORTED</div></div>';
   actions(h).appendChild(contBtn('Next section',next));
 });
 /* ============ SECTION 5 — DO IT BY THE BOOK ============ */
@@ -1380,8 +1442,8 @@ var STMTS=[
  {t:'Wet patch approximately 1 metre across observed at the same location.',ok:true}
 ];
 scr('5.2',5,function(h){
-  h.innerHTML='<h2>Your report</h2><div class="howto">Tap the statements you\'d include in the report. No limit. No hints.</div>';
-  var wrap=el('<div class="opts"></div>'),sel={};
+  h.innerHTML='<h2>Your report</h2><div class="howto">Tap each line you\'d put in the report. No limit. No hints.</div>';
+  var wrap=el('<div class="opts reportsheet"><div class="rshead">JAM INCIDENT REPORT <span>KIOSK 4 · 19:40</span></div></div>'),sel={};
   STMTS.forEach(function(s,i){
     var b=el('<button class="opt" type="button" aria-pressed="false"><span class="dot"></span><span class="body">'+s.t+'</span></button>');
     b.addEventListener('click',function(){var on=b.classList.toggle('g-pick');b.setAttribute('aria-pressed',on?'true':'false');if(on)sel[i]=1;else delete sel[i];
@@ -1515,7 +1577,7 @@ scr('5.8',5,function(h){
 scr('5.9',5,function(h){
   done[5]=true;
   h.innerHTML='<div class="closewrap"><div class="big">✓</div><h2>5 of 6 done</h2>'+
-  '<div class="progressdots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>';
+  '<div class="progressdots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><div class="stamp">SHIFT LOG 19:50 — INCIDENT LOGGED · FACTS ONLY</div></div>';
   actions(h).appendChild(contBtn('Last section',next));
 });
 /* ============ SECTION 6 — PROTECT THE BRAND ============ */
@@ -1575,7 +1637,7 @@ scr('6.4',6,function(h){
 });
 scr('6.5',6,function(h){
   h.innerHTML='<h2>The steward group chat</h2><p class="lead">Someone posts: <i>"anyone see what actually happened at Gate 2 earlier??"</i></p><p class="q">What do you do?</p>';
-  mcq(h,{opts:[
+  mcq(h,{skin:'speech',opts:[
     {t:'Tell them what you saw — it\'s factual',k:'bad',f:'<b>Feels like the honest answer.</b> It\'s a written record of an incident, in a group of 40 people, outside any official system.'},
     {t:'Say nothing',k:'warn',f:'<b>Safe for you.</b> The conversation carries on without you.'},
     {t:'"Can\'t discuss it here — put it in a report."',k:'best',f:'You\'ve answered and closed it, and given everyone else the right route.'}
@@ -1583,42 +1645,26 @@ scr('6.5',6,function(h){
 });
 scr('6.6',6,function(h){
   h.innerHTML='<h2>The car park, after your shift</h2><p class="lead">Someone friendly asks how the night went, then asks what happened at Gate 2. No camera. No notebook. You\'re off shift.</p><p class="q">What do you say?</p>';
-  mcq(h,{cont:'Last one',opts:[
+  mcq(h,{skin:'speech',cont:'Last one',opts:[
     {t:'"It was fine, busy night."',k:'ok',f:'<b>Polite and closed.</b> You haven\'t been rude and you haven\'t said anything.'},
     {t:'"It\'s not my place to say."',k:'best',f:'Clear, professional, ends it. Worth practising out loud — it\'s easier to say when you\'ve said it before.'},
     {t:'Tell them — you\'re off shift',k:'bad',f:'<b>Off shift doesn\'t end confidentiality.</b> You knew it because of your pass.'}
   ]});
 });
 scr('6.7',6,function(h){
-  h.innerHTML='<h2>Write a post you\'d be happy to publish</h2><p class="q">Write one or two lines about your shift that you\'d be happy to post publicly.</p>'+
-  '<textarea class="ipt" aria-label="Write a public post about your shift"></textarea>';
-  var a=actions(h);
-  var exBtn=contBtn('Show me three examples',function(){
-    a.innerHTML='';
-    var w=el('<div>'+
-    '<div class="exl v-ok"><div class="ext2">"Long shift, good crowd, great atmosphere tonight 💙"</div><div class="exv">✓ Fine. Says nothing about anything.</div></div>'+
-    '<div class="exl v-warn"><div class="ext2">"Mad night at Gate 2, you would not believe what happened 👀"</div><div class="exv">⚠ You\'ve said nothing and everything. This invites the questions.</div></div>'+
-    '<div class="exl v-no"><div class="ext2">"Was 2 metres from [player] tonight 😳 mental"</div><div class="exv">✕ Names a person, places you backstage, and confirms where they were.</div></div>'+
-    '<div class="howto" style="margin-top:12px">Which is yours closest to?</div><div class="opts" id="cl67"></div></div>');
-    a.before(w);
-    ['The first one','The second one','The third one'].forEach(function(t,i){
-      var b=el('<button class="opt" type="button"><span class="dot"></span><span class="body">'+t+'</span></button>');
-      b.addEventListener('click',function(){
-        w.querySelectorAll('.opt').forEach(function(x){x.disabled=true;});b.classList.add('g-pick');
-        a.appendChild(contBtn('Section complete',next));
-      });
-      w.querySelector('#cl67').appendChild(b);
-    });
-  });
-  exBtn.disabled=true;
-  var ta67=h.querySelector('textarea');
-  ta67.addEventListener('input',function(){exBtn.disabled=ta67.value.trim().length<3;});
-  a.appendChild(exBtn);
+  h.innerHTML='<h2>Three posts, one safe</h2>'+
+  '<p class="q">It\'s after the shift. Only <b>one</b> of these is safe to post. Which?</p>';
+  function post(txt){return '<span class="phead"><span class="pav">A</span><span class="pwho"><b>You</b><span>Just now · Public</span></span></span><span class="ptext">'+txt+'</span><span class="pfoot"><span>♡ Like</span><span>💬 Comment</span><span>↗ Share</span></span>';}
+  mcq(h,{skin:'feed',cont:'Section complete',opts:[
+    {t:post('Long shift, good crowd, great atmosphere tonight 💙'),k:'best',f:'Safe — it says nothing about people, incidents or access. Post away.'},
+    {t:post('Mad night at Gate 2, you would not believe what happened 👀'),k:'bad',f:'You\'ve said nothing — and everything. This post invites the questions you\'re not allowed to answer.'},
+    {t:post('Was 2 metres from the star player tonight 😳 mental'),k:'bad',f:'Names a person, places you backstage, and confirms where they were. This is the post that ends accreditations.'}
+  ]});
 });
 scr('6.8',6,function(h){
   done[6]=true;
   h.innerHTML='<div class="closewrap"><div class="big">✓</div><h2>6 of 6 done</h2><p class="lead">Now the real thing.</p>'+
-  '<div class="progressdots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>';
+  '<div class="progressdots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><div class="stamp">SHIFT LOG 22:00 — POST SECURE · PHONE AWAY</div></div>';
   actions(h).appendChild(contBtn('Start your shift',next));
 });
 /* ============ SECTION 7 — THE SHIFT (no feedback until the end) ============ */
@@ -1627,7 +1673,7 @@ function simScreen(id,time,heading,body,opts,key,extra){
     setClock(time);
     var pre=extra?extra():'';
     h.innerHTML='<div class="kicker">'+time+'</div><h2>'+heading+'</h2>'+pre+'<p class="lead">'+body+'</p><p class="q">What do you do?</p>';
-    mcq(h,{nav:true,opts:opts.map(function(o){return {t:o.t};})});
+    mcq(h,{skin:'speech',nav:true,opts:opts.map(function(o){return {t:o.t};})});
     h.querySelectorAll('.opt').forEach(function(b,i){
       b.addEventListener('click',function(){st.sim[key]=i;st.simQ[key]=opts[i].q;},true);
     });
