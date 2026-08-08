@@ -59,14 +59,15 @@ function kill(){ if(ifr){try{ifr.contentWindow.SCORM.finish(true);}catch(e){} if
     var W2=ifr.contentWindow;
     var h2=W2.document.querySelector(".screen h2");
     log(!!h2 && /1 of 6/.test(h2.textContent),"resumed at bookmark (screen shows '1 of 6 done'), got: "+(h2?h2.textContent:"none"));
-    var node1=W2.document.querySelector(".stepper .node");
-    log(!!node1 && node1.textContent==="✓","restored progress (section 1 shows ✓ in stepper)");
     // 5. free navigation while we're here
     var node4=W2.document.querySelectorAll(".stepper .node")[3];
     log(!!node4 && !node4.disabled,"upcoming section 4 is clickable (free navigation)");
     node4.click(); await sleep(600);
     var h24=W2.document.querySelector(".screen h2");
     log(!!h24 && /Gate 3, peak arrival/.test(h24.textContent),"clicking 4 jumps to section 4, got: "+(h24?h24.textContent:"none"));
+    // now that section 1 is no longer current, its restored ✓ should show
+    var node1=W2.document.querySelector(".stepper .node");
+    log(!!node1 && node1.textContent==="✓","restored progress (section 1 shows ✓ once not current)");
     // 6. score reporting (empty sim → 0/100 failed)
     W2.JAM.go("8.1"); await sleep(900);
     log(cmi["cmi.core.score.raw"]==="0","score.raw reported (0 for empty run)");
