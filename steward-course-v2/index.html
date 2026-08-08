@@ -420,7 +420,7 @@
   .skin-radio .opt.g-warn{background:var(--amber-tint);border-color:var(--amber)}
   /* ---- Sections 3/6: options as speech bubbles ---- */
   .skin-speech{gap:12px}
-  .skin-speech .opt{border-radius:16px 16px 4px 16px;background:#fff;border-color:var(--line-2);margin-left:14%;position:relative}
+  .skin-speech .opt{border-radius:16px 16px 4px 16px;background:#fff;border-color:var(--line-2);position:relative}
   .skin-speech .opt::before{content:"";position:absolute;right:-1px;bottom:-9px;border:10px solid transparent;border-top-color:var(--line-2);border-right-color:var(--line-2)}
   .skin-speech .opt .body{font-size:14.5px}
   .skin-speech .opt .body::before{content:"YOU";display:block;font-family:var(--font-display);font-size:10px;letter-spacing:.14em;color:var(--muted);margin-bottom:2px}
@@ -506,7 +506,8 @@
   .rsline{border-bottom:1px dashed #d8d2bd;padding:8px 6px;font-size:13.5px;color:var(--ink);animation:rise .25s ease}
   .rsempty{padding:10px 6px;font-size:13px;color:var(--faint);font-style:italic}
   /* ---- section-close shift-log stamp ---- */
-  .stamp{display:inline-block;margin-top:18px;padding:9px 16px;border:2.5px dashed var(--teal);border-radius:8px;color:var(--teal);font-family:var(--font-display);font-size:13.5px;letter-spacing:.1em;transform:rotate(-2.5deg);background:rgba(15,157,138,.05);animation:stampIn .4s cubic-bezier(.2,.9,.3,1.4) both .25s}
+  .stamp{display:block;width:-webkit-fit-content;width:fit-content;max-width:min(92%,300px);box-sizing:border-box;text-align:center;line-height:1.45;margin:18px auto 0;padding:9px 16px;border:2.5px dashed var(--teal);border-radius:8px;color:var(--teal);font-family:var(--font-display);font-size:13.5px;letter-spacing:.1em;transform:rotate(-2.5deg);background:rgba(15,157,138,.05);animation:stampIn .4s cubic-bezier(.2,.9,.3,1.4) both .25s}
+  body,#app{overflow-x:hidden} /* nothing may ever scroll the page sideways */
   @keyframes stampIn{from{transform:rotate(-2.5deg) scale(1.6);opacity:0}to{transform:rotate(-2.5deg) scale(1);opacity:1}}
   /* ===== Section 3 — live conversation + mood meter ===== */
   .moodwrap{position:sticky;top:6px;z-index:5;background:#fff;border:1px solid var(--line-2);border-radius:14px;box-shadow:var(--shadow-sm);padding:7px 12px;margin:0 0 9px;display:flex;align-items:center;gap:11px}
