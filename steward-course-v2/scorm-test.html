@@ -64,7 +64,7 @@ function kill(){ if(ifr){try{ifr.contentWindow.SCORM.finish(true);}catch(e){} if
     log(!!node4 && !node4.disabled,"upcoming section 4 is clickable (free navigation)");
     node4.click(); await sleep(600);
     var h24=W2.document.querySelector(".screen h2");
-    log(!!h24 && /Gate 3, peak arrival/.test(h24.textContent),"clicking 4 jumps to section 4, got: "+(h24?h24.textContent:"none"));
+    log(!!h24 && /Spot it before it grows/.test(h24.textContent),"clicking 4 jumps to section 4, got: "+(h24?h24.textContent:"none"));
     // now that section 1 is no longer current, its restored ✓ should show
     var node1=W2.document.querySelector(".stepper .node");
     log(!!node1 && node1.textContent==="✓","restored progress (section 1 shows ✓ once not current)");
